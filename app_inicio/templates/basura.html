@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Soluciones al problema de la basura</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500&display=swap" rel="stylesheet">
+        <!-- Agregar Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    </head>
+    
+<style>
+    body {
+        background-color: #a7f3c4/* Cambiar el color */
+    }
+   
+    @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s ease forwards;
+        }
+        h2 {
+        color: #3a6d1d;
+        font-size: 2.5rem; 
+        margin-top: 20px; 
+    }
+        p {
+        color: #072e02;
+        font-size: 1.2rem;
+        margin-top: 15px; 
+        line-height: 1.6; 
+    }
+</style>
+
+<body>
+    <header class="hero-about">
+        <div class="textos-hero">
+            <h1>Soluciones a la problematica de la basura</h1>
+            
+            <nav class="nav-bar">
+                <a href="/index">problemas ambientales</a>
+                
+                <a href="/about">Soluciones a la problematica del agua</a>
+                <a href="/">Juego de problemas ambientales</a>
+                <a href="/acerca">Acerca de</a>
+            </nav>
+               
+    
+        </div>
+        
+        <div class="svg-hero" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #a7f3c4"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+    <img src="{% static 'img/reducir.jpg' %}" alt="Reducción del consumo" class="imagen-animada" style="flex: 1; max-width: 400px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Reducción del consumo:</h2>
+        <p class="parrafo">
+            Disminuir la generación de basura desde la raíz implica optar por 
+            productos duraderos y minimizar el uso de artículos desechables, como plásticos de un solo uso. 
+            Este enfoque fomenta una economía sostenible y reduce significativamente la cantidad de residuos generados.
+        </p>
+        
+    </div>
+</section>
+
+   
+<section class="info-last">
+    <div class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+        <div class="contenedor-textos-main hidden" style="flex: 2;">
+            <h2 class="titulo left">Reciclaje</h2>
+            <p class="parrafo">
+                La agricultura consume una gran parte del agua dulce disponible. Implementar técnicas como el riego por goteo,
+            la rotación de cultivos y el uso de sensores para optimizar la cantidad de agua aplicada puede reducir
+            significativamente el consumo, mejorando la sostenibilidad de los recursos hídricos.
+            </p>
+        </div>
+        <img src="{% static 'img/reciclaje.jpg' %}" alt="Reciclaje" class="imagen-animada" style="flex: 1; max-width: 300px;">
+    </div>
+</section>
+
+
+    
+<section class="wave-contenedor website"  style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+    <img src="{% static 'img/educacion.jpg' %}" alt="Educación y sensibilización:" class="imagen-animada" style="flex: 1; max-width: 300px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Educación y sensibilización:</h2>
+        <p class="parrafo">
+            Implementar campañas informativas en comunidades y escuelas ayuda a concienciar sobre la importancia de la gestión adecuada de residuos. 
+            Esto incluye enseñar prácticas como la separación en origen, la reducción del consumo y el reciclaje.
+        </p>
+    </div>
+</section>
+
+
+    
+
+<section class="info-last"  >
+  <div class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+     <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Alianzas comunitarias:</h2>
+        <p class="parrafo">
+            Trabajar con organizaciones locales, empresas y autoridades facilita la implementación de 
+            programas sostenibles, como puntos de reciclaje y gestión de residuos en grandes volúmenes.
+
+        </p>
+     </div>
+     <img src="{% static 'img/alianzas.jpg' %}" alt="Alianzas comunitarias:"  class="imagen-animada" style="flex: 1; max-width: 300px;">
+  </div>
+</section>
+
+
+
+   
+<section class="wave-contenedor website" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+    <img src="{% static 'img/compos.jpg' %}" alt="Compostaje:" class="imagen-animada"  style="flex: 1; max-width: 400px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Compostaje:</h2>
+        <p class="parrafo">
+            Los desechos orgánicos, como restos de alimentos y poda, pueden transformarse en abono natural a través del compostaje. Esto no solo reduce la basura, sino que también mejora
+             la fertilidad del suelo y evita emisiones de gases como el metano, generadas en vertederos.
+        </p>
+        <a href="#top" class="button-link" style="text-decoration: none; margin-top: 10px;">
+            <button >
+                <span class="text">Volver al inicio</span>
+            </button>
+        </a>
+    </div>
+</section>
+
+    <footer>
+       
+        
+        <p>&copy; Derechos reservados 2024</p>
+    </footer>
+    
+    
+    <script>
+        const elements = document.querySelectorAll('.hidden');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => observer.observe(element));
+    </script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Preguntas y Respuestas</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #90EE90;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #canvas {
+      background-color: #FFFFFF;
+      border: 1px solid #000;
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      color: #FFF;
+      border: none;
+      cursor: pointer;
+    }
+    #reiniciar-btn {
+      display: none;
+      background-color: #007bff;
+    }
+    #salir-btn {
+      background-color: #FF6347;
+    }
+    #ver-puntajes-btn {
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  
+  <div class="button-container">
+    <button id="reiniciar-btn">Volver a resolver</button>
+    <button id="salir-btn">Salir del juego</button>
+    <button id="ver-puntajes-btn">Ver Puntajes</button>
+  </div>
+
+  <!-- Formulario para CSRF token -->
+  <form method="POST">
+    {% csrf_token %}
+  </form>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const reiniciarBtn = document.getElementById("reiniciar-btn");
+    const salirBtn = document.getElementById("salir-btn");
+    const verPuntajesBtn = document.getElementById("ver-puntajes-btn");
+    verPuntajesBtn.style.display = "none";
+
+    const preguntas = [
+      { 
+        pregunta: "¿Qué se busca con la educación y concienciación ambiental?", 
+        opciones: [
+            "Aumentar el consumo de agua", 
+            "Cambiar hábitos y fomentar el uso responsable del agua", 
+            "Descartar el reciclaje del agua", 
+            "Incrementar el desperdicio de recursos hídricos"
+        ], 
+        respuestaCorrecta: "Cambiar hábitos y fomentar el uso responsable del agua"
+      },
+      { 
+        pregunta: "¿Qué es la captación de agua de lluvia?", 
+        opciones: [
+            "Usar agua potable para riego", 
+            "Recoger y almacenar agua de lluvia para su uso", 
+            "Descartar las lluvias como recurso", 
+            "Utilizar agua para crear lluvia artificial"
+        ], 
+        respuestaCorrecta: "Recoger y almacenar agua de lluvia para su uso"
+      },
+      { 
+        pregunta: "¿Qué se logra con la reutilización de aguas residuales?", 
+        opciones: [
+            "Aumentar la contaminación del agua", 
+            "Reducir la demanda de agua dulce y minimizar la contaminación", 
+            "Crear más residuos", 
+            "Generar más aguas residuales"
+        ], 
+        respuestaCorrecta: "Reducir la demanda de agua dulce y minimizar la contaminación"
+      },
+      { 
+        pregunta: "¿Por qué es importante mejorar las infraestructuras de distribución de agua?", 
+        opciones: [
+            "Para aumentar las pérdidas de agua", 
+            "Para reparar tuberías viejas y crear depósitos más eficientes", 
+            "Para consumir más agua", 
+            "Para reducir la demanda de agua potable"
+        ], 
+        respuestaCorrecta: "Para reparar tuberías viejas y crear depósitos más eficientes"
+      },
+      { 
+        pregunta: "¿Qué técnica agrícola ayuda a optimizar el uso del agua?", 
+        opciones: [
+            "Uso de grandes cantidades de agua", 
+            "Riego por goteo y rotación de cultivos", 
+            "Uso de pesticidas", 
+            "Explotación excesiva de recursos hídricos"
+        ], 
+        respuestaCorrecta: "Riego por goteo y rotación de cultivos"
+      },
+      { 
+        pregunta: "¿Qué función tienen las políticas públicas sobre el uso del agua?", 
+        opciones: [
+            "Incrementar el consumo de agua sin control", 
+            "Establecer leyes que regulen el uso eficiente del agua", 
+            "Fomentar la contaminación hídrica", 
+            "Permitir el uso ilimitado del agua"
+        ], 
+        respuestaCorrecta: "Establecer leyes que regulen el uso eficiente del agua"
+      },
+      { 
+        pregunta: "¿Cómo ayuda la desalinización a resolver la escasez de agua?", 
+        opciones: [
+            "Convierte el agua salada en agua potable", 
+            "Aumenta la salinidad del agua", 
+            "Contamina el agua dulce", 
+            "No tiene ningún impacto en la escasez de agua"
+        ], 
+        respuestaCorrecta: "Convierte el agua salada en agua potable"
+      },
+      { 
+        pregunta: "¿Qué es la captación de niebla?", 
+        opciones: [
+            "Un sistema que convierte la humedad ambiental en agua líquida", 
+            "Un proceso para evaporar el agua de los ríos", 
+            "Un método para contaminar el agua", 
+            "Un tipo de tecnología para crear lluvia artificial"
+        ], 
+        respuestaCorrecta: "Un sistema que convierte la humedad ambiental en agua líquida"
+      },
+      { 
+        pregunta: "¿Por qué se deben fomentar las prácticas sostenibles en las empresas?", 
+        opciones: [
+            "Para aumentar la generación de residuos líquidos", 
+            "Para respetar el ciclo natural del agua y evitar la contaminación", 
+            "Para promover el uso de materiales no biodegradables", 
+            "Para aumentar el consumo de agua potable"
+        ], 
+        respuestaCorrecta: "Para respetar el ciclo natural del agua y evitar la contaminación"
+      },
+      { 
+        pregunta: "¿Qué objetivo tiene la educación sobre la gestión del agua?", 
+        opciones: [
+            "Enseñar a desperdiciar agua", 
+            "Concienciar sobre el uso responsable y la conservación de los recursos hídricos", 
+            "Ignorar la contaminación del agua", 
+            "Fomentar la sobreexplotación de los recursos hídricos"
+        ], 
+        respuestaCorrecta: "Concienciar sobre el uso responsable y la conservación de los recursos hídricos"
+      }
+    ];
+    let preguntaActual = 0;
+    let aciertos = 0;
+    let finJuego = false;
+    let resultado = "";
+
+    function mostrarPregunta() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  if (!finJuego) {
+    let pregunta = preguntas[preguntaActual];
+    
+    // Mostrar la pregunta
+    ctx.fillStyle = "#000";
+    ctx.font = "24px Arial";
+    ctx.fillText(pregunta.pregunta, 50, 70);
+    
+    // Mostrar las opciones
+    pregunta.opciones.forEach((opcion, index) => {
+      ctx.fillText(`${index + 1}. ${opcion}`, 50, 120 + index * 40);
+    });
+
+    // Mostrar el progreso en la parte inferior
+    const progresoTexto = `Pregunta ${preguntaActual + 1} de ${preguntas.length}`;
+    ctx.font = "20px Arial";
+    ctx.fillText(progresoTexto, canvas.width / 2 - ctx.measureText(progresoTexto).width / 2, canvas.height - 20);
+  } else {
+    // Mostrar el resultado final
+    ctx.font = "24px Arial";
+    ctx.fillText("Juego terminado", 300, 250);
+    ctx.fillText(`Resultado: ${resultado}`, 300, 300);
+    ctx.fillText(`Aciertos: ${aciertos}/${preguntas.length}`, 300, 350);
+
+    // Mostrar botones
+    reiniciarBtn.style.display = "block";
+    verPuntajesBtn.style.display = "block";
+
+    // Pedir el nombre del jugador
+    const nombreJugador = prompt("Ingresa tu nombre:");
+    enviarPuntaje(nombreJugador, aciertos); // Enviar puntaje al servidor
+  }
+}
+
+function verificarRespuesta(x, y) {
+  if (finJuego) return;
+
+  let pregunta = preguntas[preguntaActual];
+
+  pregunta.opciones.forEach((opcion, index) => {
+    // Calculamos las coordenadas de cada opción
+    const opcionInicioY = 120 + index * 40 - 20; // Línea superior del texto
+    const opcionFinY = 120 + index * 40 + 10;   // Línea inferior del texto
+
+    if (y > opcionInicioY && y < opcionFinY) {
+      // Comprobamos si la opción seleccionada es correcta
+      if (opcion === pregunta.respuestaCorrecta) {
+        aciertos++;
+      }
+
+      // Avanzamos a la siguiente pregunta
+      preguntaActual++;
+      if (preguntaActual >= preguntas.length) {
+        finJuego = true;
+        resultado = aciertos === preguntas.length ? "¡Excelente trabajo!" : "Intenta de nuevo.";
+      }
+      mostrarPregunta();
+    }
+  });
+}
+
+canvas.addEventListener("click", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  verificarRespuesta(x, y);
+});
+
+    reiniciarBtn.addEventListener("click", () => {
+      preguntaActual = 0;
+      aciertos = 0;
+      finJuego = false;
+      resultado = "";
+      reiniciarBtn.style.display = "none";
+      verPuntajesBtn.style.display = "none";
+      mostrarPregunta();
+    });
+
+    salirBtn.addEventListener("click", () => {
+      window.location.href = '/';  // Redirige a la página de inicio
+    });
+
+    verPuntajesBtn.addEventListener("click", () => {
+      window.location.href = '{% url "ver_puntajes" %}';  // Redirige a la página de puntajes
+    });
+
+    // Función para enviar la puntuación al servidor
+    function enviarPuntaje(nombreJugador, puntaje) {
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;  // Obtén el token CSRF
+
+      fetch("{% url 'guardar_puntaje' %}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `csrfmiddlewaretoken=${csrfToken}&nombre=${nombreJugador}&puntaje=${puntaje}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);  // Mostrar mensaje de éxito
+      })
+      .catch(error => console.error('Error al guardar el puntaje:', error));
+    }
+
+    mostrarPregunta();
+  </script>
+</body>
+</html>

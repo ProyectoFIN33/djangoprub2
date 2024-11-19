@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Soluciones al problema de la basura</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500&display=swap" rel="stylesheet">
+        <!-- Agregar Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+    <style>
+        /* Configuración del fondo */
+        body {
+            background-color: #a7f3c4;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        /* Estilo para la sección de Fuentes */
+        .fuentes, .tecnologias {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+
+        .fuentes h2, .tecnologias h2 {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .fuentes .icono, .tecnologias .icono {
+            font-size: 18px;
+        }
+
+        /* Lista de fuentes y tecnologías */
+        #lista-fuentes, #lista-tecnologias {
+            display: none; /* Oculto inicialmente */
+            margin: 20px auto;
+            width: 60%;
+            text-align: left; /* Alinea las fuentes y tecnologías a la izquierda */
+        }
+
+        #lista-fuentes li, #lista-tecnologias li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="textos-hero">
+            <h1>Acerca de...</h1>
+            <nav class="nav-bar">
+                <a href="/index">Problemas ambientales</a>
+                <a href="/basura">Soluciones a la problemática de la basura</a>
+                <a href="/about">Soluciones a la problemática del agua</a>
+                <a href="/">Juego de problemas ambientales</a>
+            </nav>
+        </div>
+        <div class="svg-hero" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #a7f3c4"></path>
+            </svg>
+        </div>
+    </header>
+    
+    <section class="">
+        <div class="">
+            <h3 class="titulo">Este proyecto fue creado con el propósito de abordar y 
+                sensibilizar sobre los problemas ambientales que enfrentan nuestras 
+                comunidades. EcoEducación busca ser una plataforma educativa e interactiva 
+                que fomente la conciencia ambiental, ofrezca información sobre los principales 
+                desafíos ecológicos, y proponga soluciones prácticas que las personas puedan
+                aplicar en su vida diaria.
+            </h3>
+            <br>
+            <p class=""> MÓDULO PROFESIONAL II: Desarrolla Software con Herramientas Orientadas a la Productividad. </p>
+            <br>
+            <p class=""> M2S1 Emplea Frameworks para el desarrollo de Software </p>
+            <p class=""> M2S2 Aplica metodologías ágiles para el desarrollo de Software</p>
+            <br>
+            <p class=""> Docente: M.E.S Roberto Ruiz Mendoza</p>
+            <br>
+            <p class=""> Integrantes del equipo:</p>
+            <p class=""> Amador Perez Jose Andrew</p>
+            <p class=""> Perez Martinez Kaled</p>
+            <p class=""> Hernandez Santos Marlen Azucena</p>
+            <p class=""> Hernandez Barriga Jesus Antonio</p>
+            <p class=""> Santiago Martinez Erick</p>
+            <br>
+            <p class=""> B.T. en Programación</p>
+            <p class=""> Semestre: 3 Grupo: D</p>
+            <p class=""> Generación: 2023-2026</p>
+        </div>
+    </section>
+    
+    
+    <!-- Sección de Fuentes -->
+     <h3>Referencias</h3>
+    
+
+
+
+
+
+
+
+    <section class="fuentes" onclick="toggleFuentes()">
+       
+        <h2>Fuentes</h2>
+        <span class="icono">&#x276F;</span> <!-- Este es el ícono de flecha -->
+    </section>
+    <ul id="lista-fuentes">
+        <li>Ecologistas en Acción. (2022). Día sin compras supermercado [Imagen].  
+            <a href="https://www.ecologistasenaccion.org/wp-content/uploads/2022/11/dia-sin-compras-supermercado-1080x640.jpg" target="_blank">
+                https://www.ecologistasenaccion.org
+            </a>
+        </li>
+        <li>Diario Libre. (2020). Personas comprando en un supermercado [Imagen].  
+            <a href="https://www.diariolibre.com/binrepository/1970x1333/0c155/1970d1024/none/10904/NTAK/shutterstock-600755237_13913918_20200517103707.jpg" target="_blank">
+                https://www.diariolibre.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Estanterías de supermercado [Imagen].  
+            <a href="https://th.bing.com/th/id/R.fda0f8e3fe42592fae06fd052c29e76a?rik=k%2bWnbINbVP7lYw&pid=ImgRaw&r=0" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Carritos en un supermercado [Imagen].  
+            <a href="https://th.bing.com/th/id/OIP.ygRgU5xsk5eLq8PcGavEAwHaE8?rs=1&pid=ImgDetMain" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Caja registradora en un supermercado [Imagen].  
+            <a href="https://th.bing.com/th/id/R.0fef071ecb992a197930bd6edfa90568?rik=PceezsFy%2fiFWkA&pid=ImgRaw&r=0" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Personas en la sección de frutas y verduras [Imagen].  
+            <a href="https://th.bing.com/th/id/OIP.AaUAl3SBxgZsCPM_aRYtvwHaE8?rs=1&pid=ImgDetMain" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Interior de supermercado con estanterías vacías [Imagen].  
+            <a href="https://th.bing.com/th/id/OIP.YukG7NKZNsbREIe-EyIsHQHaE8?rs=1&pid=ImgDetMain" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Supermercado con productos organizados [Imagen].  
+            <a href="https://th.bing.com/th/id/R.6fdbacec9353fa6f6ed79103ecf25888?rik=JQqG2fPoL7pbqg&pid=ImgRaw&r=0" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Personas comprando en pasillos de supermercado [Imagen].  
+            <a href="https://th.bing.com/th/id/OIP.quGw4PtqCw95TB6P26zF7AHaFj?rs=1&pid=ImgDetMain" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Imagen de Bing. Carritos de compras apilados en supermercado [Imagen].  
+            <a href="https://th.bing.com/th/id/OIP.JpTclee-f6c2uNj65plFqAHaE8?rs=1&pid=ImgDetMain" target="_blank">
+                https://th.bing.com
+            </a>
+        </li>
+        <li>Fundación Aquae. (2023). La gestión sostenible de los residuos y su impacto en el medio ambiente.  
+            <a href="https://www.fundacionaquae.org" target="_blank">
+                https://www.fundacionaquae.org
+            </a>
+        </li>
+        <li>EcoInventos. (2023). Soluciones prácticas para reducir y reutilizar residuos.  
+            <a href="https://ecoinventos.com" target="_blank">
+                https://ecoinventos.com
+            </a>
+        </li>
+        <li>Corredores Verdes. (n.d.). Soluciones eficaces para la basura en las escuelas.  
+            <a href="https://corredoresverdes.es" target="_blank">
+                https://corredoresverdes.es
+            </a>
+        </li>
+        <li>Tratamos el Agua. (n.d.). Problemas ambientales relacionados con el agua y posibles soluciones.  
+            <a href="https://www.tratamoselagua.es" target="_blank">
+                https://www.tratamoselagua.es
+            </a>
+        </li>
+        <li>Tratamos el Agua. (n.d.). Propuestas efectivas para combatir la escasez de agua.  
+            <a href="https://www.tratamoselagua.es" target="_blank">
+                https://www.tratamoselagua.es
+            </a>
+        </li>
+        <li>Fundación Aquae. (2023). Soluciones a los problemas de escasez y contaminación del agua.  
+            <a href="https://www.fundacionaquae.org" target="_blank">
+                https://www.fundacionaquae.org
+            </a>
+        </li>
+    </ul>
+    
+
+    <section class="tecnologias" onclick="toggleTecnologias()">
+        <h2>Tecnologías Utilizadas</h2>
+        <span class="icono">&#x276F;</span> 
+    </section>
+    <ul id="lista-tecnologias">
+        <li>Python - Lenguaje de programación utilizado en el backend</li>
+        <li>Django - Framework web para el desarrollo del backend</li>
+        <li>SQLite - Base de datos utilizada para almacenar la información</li>
+        <li>HTML - Estructura de la página web</li>
+        <li>CSS - Estilos y diseño visual de la página</li>
+        <li>JavaScript - Funcionalidades interactivas en el frontend</li>
+        <li>Pygame - Biblioteca para el desarrollo del juego educativo</li>
+       
+    </ul>
+    
+    
+    <footer>
+        <p>&copy; Derechos reservados 2024</p>
+    </footer>
+    
+    <script>
+      
+
+
+        function toggleFuentes() {
+            const listaFuentes = document.getElementById('lista-fuentes');
+            listaFuentes.style.display = listaFuentes.style.display === 'none' || listaFuentes.style.display === '' ? 'block' : 'none';
+        }
+
+        function toggleTecnologias() {
+            const listaTecnologias = document.getElementById('lista-tecnologias');
+            listaTecnologias.style.display = listaTecnologias.style.display === 'none' || listaTecnologias.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

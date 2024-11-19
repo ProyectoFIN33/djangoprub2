@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Soluciones al problema de la basuras</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500&display=swap" rel="stylesheet">
+        <!-- Agregar Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    </head>
+    
+<style>
+    body {
+        background-color: #a7f3c4/* Cambiar el color */
+    }
+   
+    @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s ease forwards;
+        }
+        h2 {
+        color: #3a6d1d;
+        font-size: 2.5rem; 
+        margin-top: 20px; 
+    }
+        p {
+        color: #072e02;
+        font-size: 1.2rem;
+        margin-top: 15px; 
+        line-height: 1.6; 
+    }
+</style>
+
+<body>
+    <header class="hero-about">
+        <div class="textos-hero">
+            <h1>Soluciones a la problematica del agua</h1>
+            
+            <nav class="nav-bar">
+                <a href="/index">problemas ambientales</a>
+                
+                <a href="/basura">Soluciones a la problematica de la basura</a>
+                <a href="/">Juego de problemas ambientales</a>
+                <a href="/acerca">Acerca de</a>
+            </nav>
+               
+    
+        </div>
+        
+        <div class="svg-hero" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #a7f3c4"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+    <img src="{% static 'img/agua.jpg' %}" alt="Captación y Reutilización del Agua" class="imagen-animada" style="flex: 1; max-width: 400px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Captación y Reutilización del Agua</h2>
+        <p class="parrafo">
+            <strong>Captación de Agua de Lluvia:</strong> Implementar sistemas que recolecten y almacenen 
+            agua de lluvia para riego, limpieza o consumo humano en regiones con acceso limitado al agua potable.
+        </p>
+        <p class="parrafo">
+            <strong>Reutilización de Aguas Residuales:</strong> Tratamiento de aguas residuales para su uso en la agricultura, la industria o
+            actividades domésticas no potables. Esto reduce la demanda de agua dulce y minimiza la contaminación.
+        </p>
+    </div>
+</section>
+
+   
+<section class="info-last">
+    <div class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+        <div class="contenedor-textos-main hidden" style="flex: 2;">
+            <h2 class="titulo left">Eficiencia en la Agricultura</h2>
+            <p class="parrafo">
+                La agricultura consume una gran parte del agua dulce disponible. Implementar técnicas como el riego por goteo,
+            la rotación de cultivos y el uso de sensores para optimizar la cantidad de agua aplicada puede reducir
+            significativamente el consumo, mejorando la sostenibilidad de los recursos hídricos.
+            </p>
+        </div>
+        <img src="{% static 'img/agua1.jpg' %}" alt="Eficiencia en la Agricultura" class="imagen-animada" style="flex: 1; max-width: 300px;">
+    </div>
+</section>
+
+
+    
+<section class="wave-contenedor website"  style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+    <img src="{% static 'img/agua2.jpg' %}" alt="Regulación y Políticas Públicas" class="imagen-animada" style="flex: 1; max-width: 300px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Regulación y Políticas Públicas</h2>
+        <p class="parrafo">
+            Establecer leyes que regulen el uso eficiente del agua y reduzcan la contaminación, como límites en el uso de pesticidas 
+            o sanciones por el vertido de aguas contaminadas. Estas políticas son esenciales para garantizar la sostenibilidad a largo plazo de los recursos hídricos.
+        </p>
+    </div>
+</section>
+
+
+    
+
+<section class="info-last"  >
+  <div class="wave-contenedor website" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+     <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Fomento de Prácticas Sostenibles</h2>
+        <p class="parrafo">
+            Incentivar a empresas y comunidades a implementar prácticas que respeten el ciclo natural del agua. 
+            Por ejemplo, usar materiales biodegradables y reducir la generación de residuos
+             líquidos que terminan contaminando ríos y mares.
+        </p>
+     </div>
+     <img src="{% static 'img/agua3.jpg' %}" alt="Fomento de Prácticas Sostenibles"  class="imagen-animada" style="flex: 1; max-width: 300px;">
+  </div>
+</section>
+
+
+
+   
+<section class="wave-contenedor website" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+    <img src="{% static 'img/agua4.jpg' %}" alt="Problemas Ambientales" class="imagen-animada"  style="flex: 1; max-width: 400px;">
+    <div class="contenedor-textos-main hidden" style="flex: 2;">
+        <h2 class="titulo left">Educación y Concienciación</h2>
+        <p class="parrafo">
+            Promover la educación ambiental y sensibilizar a la población sobre la importancia de conservar los recursos hídricos. 
+            Las campañas educativas y programas escolares pueden cambiar hábitos y fomentar un uso responsable del agua.
+            La educación ayuda a reducir desperdicios y a adoptar prácticas sostenibles a nivel personal y colectivo.
+        </p>
+        <a href="#top" class="button-link" style="text-decoration: none; margin-top: 10px;">
+            <button >
+                <span class="text">Volver al inicio</span>
+            </button>
+        </a>
+    </div>
+</section>
+
+    <footer>
+       
+        
+        <p>&copy; Derechos reservados 2024</p>
+    </footer>
+    
+    
+    <script>
+        const elements = document.querySelectorAll('.hidden');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => observer.observe(element));
+    </script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+</body>
+</html>
